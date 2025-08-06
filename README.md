@@ -13,8 +13,6 @@ This project demonstrates advanced LLM fine-tuning techniques for domain-specifi
 | Attribute | Value |
 |-----------|-------|
 | **Model Type** | `auto` |
-| **Architecture** | Decoder-Only |
-| **Base Model** | `None` |
 | **Multiple Choice Accuracy** | 75.0% |
 | **Open-Ended Keyword Score** | 35.3% |
 | **Clinical Reasoning Accuracy** | 50.0% |
@@ -25,8 +23,6 @@ This project demonstrates advanced LLM fine-tuning techniques for domain-specifi
 | Attribute | Value |
 |-----------|-------|
 | **Model Type** | `auto` |
-| **Architecture** | Decoder-Only |
-| **Base Model** | `None` |
 | **Multiple Choice Accuracy** | 66.7% |
 | **Open-Ended Keyword Score** | 34.0% |
 | **Clinical Reasoning Accuracy** | 75.0% |
