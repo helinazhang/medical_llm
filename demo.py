@@ -74,17 +74,16 @@ def main():
     # Page config
     st.set_page_config(
         page_title="Medical AI Demo",
-        page_icon="🏥",
         layout="wide"
     )
     
     # Title
-    st.title("🏥 Simple Medical AI Demo")
-    st.markdown("Test your medical AI model with easy-to-use interface")
+    st.title("Medical AI Demo")
+    st.markdown("Medical AI Model")
     
     # Sidebar
     with st.sidebar:
-        st.header("🤖 Model Settings")
+        st.header("Model Settings")
         
         # Model path input
         model_path = st.text_input(
@@ -130,9 +129,9 @@ def main():
         
         st.write("Click to copy to clipboard:")
         for i, example in enumerate(examples):
-            if st.button(f"📋 {example[:30]}...", key=f"ex_{i}"):
+            if st.button(f"{example[:30]}...", key=f"ex_{i}"):
                 st.code(example)
-                st.info("👆 Copy this question!")
+                st.info("Copy this question!")
     
     # Main interface
     col1, col2 = st.columns([2, 1])
@@ -160,7 +159,7 @@ def main():
                 )
                 
                 # Display response
-                st.subheader("🤖 AI Response:")
+                st.subheader("AI Response:")
                 st.write(response)
                 
                 # Save to history
@@ -175,8 +174,8 @@ def main():
         
         # Test without model
         st.divider()
-        st.subheader("🧪 Test Without Model")
-        if st.button("📝 Test Demo Response"):
+        st.subheader("Test Without Model")
+        if st.button("Test Demo Response"):
             test_response = """
             **Diabetes symptoms typically include:**
             
@@ -193,7 +192,7 @@ def main():
             st.markdown(test_response)
     
     with col2:
-        st.subheader("📊 Quick Stats")
+        st.subheader("Quick Stats")
         
         if "conversation_history" not in st.session_state:
             st.session_state.conversation_history = []
@@ -207,11 +206,11 @@ def main():
             st.metric("Model Status", "Not Loaded")
         
         # Clear history
-        if st.button("🗑️ Clear History"):
+        if st.button("Clear History"):
             st.session_state.conversation_history = []
             st.success("History cleared!")
         
-        st.subheader("📜 Recent Questions")
+        st.subheader("Recent Questions")
         
         # Show recent questions
         for i, item in enumerate(reversed(st.session_state.conversation_history[-5:])):
