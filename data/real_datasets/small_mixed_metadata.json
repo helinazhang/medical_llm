@@ -1,0 +1,11 @@
+{
+  "name": "small_mixed",
+  "description": "Small mixed dataset for quick testing",
+  "datasets_used": [
+    "pubmedqa",
+    "medmcqa"
+  ],
+  "sample_size_per_dataset": 100,
+  "actual_size": 200,
+  "format": "qa"
+}

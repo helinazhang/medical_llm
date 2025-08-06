@@ -1,0 +1,11 @@
+{
+  "name": "exam_focused",
+  "description": "Medical exam focused dataset",
+  "datasets_used": [
+    "medqa",
+    "medmcqa"
+  ],
+  "sample_size_per_dataset": 800,
+  "actual_size": 800,
+  "format": "qa"
+}

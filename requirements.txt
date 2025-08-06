@@ -1,0 +1,59 @@
+# Build dependencies (install first)
+setuptools>=65.0.0
+wheel>=0.37.0
+
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+transformers>=4.30.0
+accelerate>=0.20.0
+peft>=0.4.0
+bitsandbytes>=0.41.0
+datasets>=2.12.0
+tokenizers>=0.13.0
+
+# Training and optimization
+scipy>=1.10.0
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Evaluation and metrics
+evaluate>=0.4.0
+# rouge-score has dependency issues, using evaluate's rouge instead
+nltk>=3.8.1
+sacrebleu>=2.3.1
+
+# Visualization and monitoring
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.14.0
+wandb>=0.15.0
+tensorboard>=2.13.0
+
+# Web interface and API
+gradio>=3.35.0
+fastapi>=0.100.0
+uvicorn>=0.22.0
+pydantic>=2.0.0
+httpx>=0.24.0
+
+# Data processing
+PyYAML>=6.0
+tqdm>=4.65.0
+jupyter>=1.0.0
+notebook>=6.5.0
+
+# Utilities
+python-multipart>=0.0.6
+python-dotenv>=1.0.0
+psutil>=5.9.0
+
+# Optional medical/scientific (install if needed)
+pubmed-parser>=0.3.0
+bio>=1.5.0
+medspacy>=1.0.0
+
+
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121

@@ -1,25 +1,42 @@
 # Medical AI Assistant - Domain-Specific LLM Fine-tuning
 
-> **Fine-tuned Open-Sourced LLMs for medical question answering with 4-bit quantization and LoRA adaptation**
+> **Fine-tuned Llama 2 7B model for medical question answering with 4-bit quantization and LoRA adaptation**
 
 ## Project Overview
 
-This project demonstrates advanced LLM fine-tuning techniques for domain-specific applications in healthcare.
-
-### Evaluation 
-
-The models are evaulated on Multiple Choices, Open-ended Question Answering and Clinical Reasoning. 
-
+This project demonstrates advanced LLM fine-tuning techniques for domain-specific applications in healthcare. By leveraging **Llama2 7B** and **Mixtral** model with **QLoRA** (4-bit quantization + LoRA), we achieve 75%/67% accuracy on medical benchmarks (Multiple Choice Questions)
 
 ## Performance Results
-![Performance Analysis](comprehensive_evaluation/detailed_medical_evaluation_report.md)
 
+### 1. **llama-2-FineTuned**
+
+| Attribute | Value |
+|-----------|-------|
+| **Model Type** | `auto` |
+| **Architecture** | Decoder-Only |
+| **Base Model** | `None` |
+| **Multiple Choice Accuracy** | 75.0% |
+| **Open-Ended Keyword Score** | 35.3% |
+| **Clinical Reasoning Accuracy** | 50.0% |
+
+
+### 2. **mixtral-finetuned**
+
+| Attribute | Value |
+|-----------|-------|
+| **Model Type** | `auto` |
+| **Architecture** | Decoder-Only |
+| **Base Model** | `None` |
+| **Multiple Choice Accuracy** | 66.7% |
+| **Open-Ended Keyword Score** | 34.0% |
+| **Clinical Reasoning Accuracy** | 75.0% |
 
 ## Quick Start
 
 ### Installation
 ```bash
-cd medical_llm
+git clone https://github.com/helinazhang/medical-llm-suite.git
+cd medical-llm-suite
 pip install -r requirements.txt
 
 # For GPU support
@@ -32,7 +49,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 python scripts/download_data.py --create-sample
 
 # (Option 2): download real datasets from hugging face and process data to our format 
-python sripts/download_data.py --dataset all
+python scripts/download_data.py --dataset all
 ```
 
 
@@ -41,9 +58,38 @@ python sripts/download_data.py --dataset all
 ```bash
 python scripts/integrate_datasets.py --create-datasets
 ```
+
+### Data Loader
+```bash
+python src/data/real_dataset_loader.py --datasets medqa medmcqa pubmedqa --sample-size 1500 --format instruction --output data/model_data/llama_medical_data.json
+
+
+python src/data/real_dataset_loader.py --datasets medqa medmcqa pubmedqa --sample-size 1500 --format mixtral --output data/model_data/mixtral_medical_data.json
+```
+
+
+
 #### Finetune
 ```bash
-python src/training/advanced_train.py   --base-model 'gpt2-medium'   --dataset 'data/real_datasets/medium_comprehensive.json'   --output 'models/medical-medium_comprehensive'   --epochs 3
+python src/training/faster_train_llama_medical.py \
+  --model-name meta-llama/Llama-2-7b-hf \
+  --dataset-path /data/model_data/llama_medical_data_train.json \
+  --output-dir models/llama-flash \
+  --max-length 512 \
+  --mode flash \
+  --epochs 3 
+
+python src/training/faster_train_mixtral_medical.py \
+    --model-name mistralai/Mistral-7B-Instruct-v0.2 \
+    --dataset-path data/model_data/mixtral_medical_data_train.json \
+    --output-dir models/mixtral-medical-model \
+    --max-length 1024 \
+    --epochs 2 \
+    --batch-size 1 \
+    --gradient-accumulation 16 \
+    --learning-rate 5e-5 \
+    --validation-split 0.1
+
 ```
 #### Demo 
 ```python
@@ -60,14 +106,6 @@ python src/utils/model_manager.py register \
 
 ### Evaluation
 ```bash
-python enhanced_evaluation.py \
-  --model-path "models/medical-gpt2-tutor" \
-  --compare-models "models/medical-llama2-tutor" "models/baseline-model" \
-  --model-names "GPT2-FineTuned" "Llama2-4bit-QLoRA" "Baseline" \
-  --output-dir "comprehensive_evaluation"
-
-
-
 python src/evaluation/evaluate_medical_llm.py   --model-path "models/medical-gpt2"   --compare-models "models/medical-gpt2-5-epochs" "models/medical-llama2-tutor" "models/ultra-fast-medical-llama"  --model-names "GPT2-FineTuned-2-Epochs" "GPT2-FineTuned-5-Epochs" "Llama2-4bit-QLoRA-2-Epochs" "Llama2-4bit-QLoRA-3-Epochs"   --output-dir "comprehensive_evaluation"
 ```
 
@@ -89,5 +127,6 @@ print(response)
 python demo.py  # Launches Gradio interface
 ```
 
----
-
+## Future work
+1. Finetuning on newer models like Qwen3-8B, etc.
+2. Multi-round question answering to build an "online doctor"

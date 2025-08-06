@@ -1,0 +1,12 @@
+{
+  "name": "medium_comprehensive",
+  "description": "Medium comprehensive dataset for development",
+  "datasets_used": [
+    "pubmedqa",
+    "medmcqa",
+    "healthfact"
+  ],
+  "sample_size_per_dataset": 500,
+  "actual_size": 1000,
+  "format": "qa"
+}

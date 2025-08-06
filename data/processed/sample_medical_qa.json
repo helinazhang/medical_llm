@@ -1,0 +1,17 @@
+[
+  {
+    "question": "What are the symptoms of Type 2 diabetes?",
+    "answer": "Type 2 diabetes symptoms include increased thirst, frequent urination, increased hunger, unexplained weight loss, fatigue, blurred vision, slow-healing sores, and frequent infections. Many people with type 2 diabetes have no symptoms initially, which is why regular screening is important.",
+    "context": "Type 2 diabetes is a chronic condition that affects the way the body processes blood sugar (glucose)."
+  },
+  {
+    "question": "How does hypertension affect the cardiovascular system?",
+    "answer": "Hypertension damages the cardiovascular system by causing the heart to work harder to pump blood, leading to left ventricular hypertrophy. It damages arterial walls, promoting atherosclerosis and increasing risk of heart attack, stroke, and heart failure. The increased pressure also strains blood vessels throughout the body.",
+    "context": "Hypertension, or high blood pressure, is a major risk factor for cardiovascular disease."
+  },
+  {
+    "question": "What are the risk factors for heart disease?",
+    "answer": "Major risk factors for heart disease include high blood pressure, high cholesterol, smoking, diabetes, obesity, physical inactivity, unhealthy diet, excessive alcohol consumption, stress, age, family history, and gender. Many of these factors are modifiable through lifestyle changes.",
+    "context": "Heart disease remains the leading cause of death globally, but many risk factors are preventable."
+  }
+]

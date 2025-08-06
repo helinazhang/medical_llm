@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What are the early warning signs of a heart attack?",
+    "answer": "Early warning signs include chest pain or discomfort, shortness of breath, pain in arms, back, neck, jaw, or stomach, cold sweat, nausea, and lightheadedness.",
+    "context": "Cardiovascular emergency",
+    "category": "Emergency Medicine"
+  },
+  {
+    "question": "How is Type 1 diabetes different from Type 2 diabetes?",
+    "answer": "Type 1 diabetes is an autoimmune condition where the pancreas produces little or no insulin, typically diagnosed in children and young adults. Type 2 diabetes involves insulin resistance and relative insulin deficiency, usually develops in adults, and is often associated with obesity.",
+    "context": "Diabetes management",
+    "category": "Endocrinology"
+  },
+  {
+    "question": "What are the main functions of the liver?",
+    "answer": "The liver performs over 500 functions including detoxification, protein synthesis, bile production, glucose storage, fat metabolism, blood clotting factor production, and immune system support.",
+    "context": "Hepatology",
+    "category": "Gastroenterology"
+  }
+]

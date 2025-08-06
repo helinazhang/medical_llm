@@ -1,0 +1,11 @@
+{
+  "name": "qa_focused",
+  "description": "Q&A focused dataset",
+  "datasets_used": [
+    "pubmedqa",
+    "medical_meadow"
+  ],
+  "sample_size_per_dataset": 1000,
+  "actual_size": 1000,
+  "format": "qa"
+}
